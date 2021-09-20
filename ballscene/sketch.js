@@ -7,11 +7,11 @@ let ballArray = [];
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
-  for (let index = 0; index < 30; index++) {
+  for (let index = 0; index < 1000; index++) {
     let newBall = {
       x: random(width),
       y: random(height),
-      radius: random(5,10),
+      radius: random(10,100),
       ballColor: color(random(255), random(255), random(255), random(255)),
       dx: random(5, 10),
       dy: random(5, 10),
@@ -40,6 +40,7 @@ function moveBall(){
 
 function displayBall() {
   for (let ball of ballArray) {
+    noStroke();
     fill(ball.ballColor);
     circle(ball.x, ball.y, ball.radius *2);
   }
