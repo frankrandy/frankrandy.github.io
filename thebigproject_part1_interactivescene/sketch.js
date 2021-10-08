@@ -28,6 +28,7 @@ function draw() {
   hit = collideRectRect(x, y, height, width);
 
   print("colliding?", hit);
+  tennisBallbounce;
 }
 
 function drawPlayerRacket() {
@@ -43,10 +44,10 @@ function keyJockey() {
   //remembered it to the point where I could type it from memory.
 
   //key controls for exclusively drawPlayerRacket
-  if (keyIsDown(83)){
+  if (keyIsDown(87)){
     y -= speed;
   }
-  if (keyIsDown(87)){
+  if (keyIsDown(83)){
     y += speed;
   }
   if (keyIsDown(68)){
@@ -66,6 +67,14 @@ function tennisBall(){
 }
 
 function tennisBallbounce(){
+  while (hit === false){
+    tennisBall.x = random < x;
+    while (hit === true) {
+      tennisBall.x = random > x;
+    }
+  
+
+  }
   //this function will make the tennisBall bounce randomly left
   //to right depending on if it has been hit
 }
