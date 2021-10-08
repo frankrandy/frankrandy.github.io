@@ -25,10 +25,9 @@ function draw() {
   drawPlayerRacket();
   tennisBall();
 
-  hit = collideRectRect(x, y, height, width);
+  hit = collideRectRect(x, y, width, height, tennisBall.x, tennisBall.y, tennisBall.width, tennisBall.height);
 
   print("colliding?", hit);
-  tennisBallbounce;
 }
 
 function drawPlayerRacket() {
@@ -62,15 +61,17 @@ function tennisBall(){
   tennisBall.width = 20;
   tennisBall.x = 20;
   tennisBall.y = 20;
+  tennisBall.dx = 20;
+  tennisBall.dy = 20;
   rect(tennisBall.x *2, tennisBall.y *2, tennisBall.height, tennisBall.width );
 
 }
 
 function tennisBallbounce(){
   while (hit === false){
-    tennisBall.x = random < x;
+    tennisBall.dy +1;
     while (hit === true) {
-      tennisBall.x = random > x;
+      tennisBall.dy- 1;
     }
   
 
