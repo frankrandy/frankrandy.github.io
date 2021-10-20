@@ -24,7 +24,7 @@ function draw() {
   background(220);
   drawPlayerRacket();
   tennisBall();
-
+  keyJockey();
 
   hit = collideRectRect(x, y, width, height, tennisBall.x, tennisBall.y, tennisBall.width, tennisBall.height);
 
@@ -36,7 +36,7 @@ function drawPlayerRacket() {
   let width = 20;
   let height = 20;
   rect(x, y, height, width);
-  keyJockey();
+  
 }
 
 function keyJockey() {
@@ -58,6 +58,7 @@ function keyJockey() {
 
 function tennisBall(){
   //its a tennis ball
+  tennisBallBounce();
   tennisBall.height = 20;
   tennisBall.width = 20;
   tennisBall.x = 20;
@@ -65,17 +66,16 @@ function tennisBall(){
   tennisBall.dx = 20;
   tennisBall.dy = 20;
   tennisBall.speed = 4;
-  tennisBallBounce();
   rect(tennisBall.x *2, tennisBall.y *2, tennisBall.height, tennisBall.width);
 
 }
 
 function tennisBallBounce(){
   if (hit === false){
-    tennisBall.y + tennisBall.speed;
+    tennisBall.y + tennisBall.dy;
   }
   else if (hit === true) {
-    tennisBall.y - tennisBall.speed;
+    tennisBall.y - tennisBall.dy;
   }
   
 
